@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALMAKI TV | اشتراكات IPTV الفاخرة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* إعادة ضبط وتصفير العناصر */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; letter-spacing: normal; }
+        body { background-color: #0b0b0b; color: #fff; line-height: 1.6; text-align: right; padding-bottom: 60px; }
+        a { text-decoration: none; }
+
+        /* الهيدر العلوي الفخم */
+        header { background-color: #0a0a0a; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1a140a; position: sticky; top: 0; z-index: 1000; }
+        .logo { color: #dfb664; font-size: 22px; font-weight: 900; letter-spacing: 1px; }
+        .nav-btn { background: none; border: none; color: #dfb664; font-size: 24px; cursor: pointer; }
+
+        /* البنر الرئيسي (Hero) الخلفية الذهبية والسينمائية */
+        .hero { background: linear-gradient(rgba(11, 11, 11, 0.8), #0b0b0b), url('hero-bg.jpg') no-repeat center center/cover; padding: 50px 20px; text-align: center; border-bottom: 1px solid #1f1a10; }
+        .hero h1 { font-size: 26px; font-weight: 900; color: #dfb664; line-height: 1.4; margin-bottom: 10px; }
+        .hero p { color: #aaa; font-size: 13px; max-width: 320px; margin: 0 auto 20px; }
+        .btn-main { background: linear-gradient(135deg, #dfb664, #bfa054); color: #000; padding: 12px 30px; border-radius: 6px; font-weight: bold; font-size: 14px; display: inline-block; box-shadow: 0 4px 15px rgba(223, 182, 100, 0.3); }
+
+        /* حاوية الأقسام الرئيسية */
+        .main-container { max-width: 600px; margin: 0 auto; padding: 15px; }
+        .section-title { text-align: center; margin: 25px 0 15px; color: #dfb664; font-size: 20px; font-weight: 900; }
+
+        /* حاوية السيرفر الموحد (الإطار الذهبي الفاخر الكبـير) */
+        .server-box { background-color: #111111; border: 1px solid #dfb664; border-radius: 12px; padding: 20px 15px; margin-bottom: 25px; box-shadow: 0 5px 20px rgba(0,0,0,0.6); text-align: center; }
+        .server-header { margin-bottom: 15px; }
+        .server-logo { max-height: 50px; object-fit: contain; margin-bottom: 5px; display: block; margin: 0 auto 5px; }
+        .server-name { font-size: 16px; font-weight: bold; color: #fff; margin-bottom: 2px; }
+        .server-desc { font-size: 11px; color: #777; }
+
+        /* شبكة الكروت الداخلية (كرتين بجانب بعض) */
+        .cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 10px; }
+        .card-item { background-color: #161616; border: 1px solid #2a2a2a; border-radius: 8px; padding: 12px 8px; text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
+        .card-duration { font-size: 11px; color: #888; margin-bottom: 4px; }
+        .card-title { font-size: 13px; font-weight: bold; color: #fff; margin-bottom: 8px; min-height: 20px; }
+        .card-price { color: #ff4a5a; font-weight: bold; font-size: 15px; margin-bottom: 10px; }
+        
+        /* زر الطلب الفاخر أسفل الكرت */
+        .btn-order { background-color: #dfb664; color: #111; padding: 8px 5px; border-radius: 4px; font-size: 12px; font-weight: bold; display: block; text-align: center; border: none; width: 100%; cursor: pointer; }
+
+        /* الكرت المفرد (عند وجود باقة مدتها 3 شهور بالأسفل) */
+        .single-card-row { display: flex; justify-content: center; margin-top: 10px; }
+        .single-card-row .card-item { width: 100%; max-width: 100%; }
+
+        /* قسم طريقة تفعيل واختيار جهازك */
+        .step-section { margin-top: 35px; }
+        .step-box { background-color: #111; border: 1px solid #222; border-radius: 10px; padding: 15px; margin-bottom: 12px; display: flex; align-items: center; gap: 15px; }
+        .step-icon { font-size: 24px; color: #dfb664; width: 40px; text-align: center; }
+        .step-content h3 { font-size: 14px; font-weight: bold; color: #fff; }
+        .step-content p { font-size: 11px; color: #888; margin-top: 2px; }
+
+        /* الفوتر السفلي */
+        footer { background-color: #050505; text-align: center; padding: 25px 20px; border-top: 1px solid #111; margin-top: 40px; }
+        .footer-logo { color: #dfb664; font-size: 16px; font-weight: bold; margin-bottom: 5px; }
+        footer p { font-size: 11px; color: #555; }
+
+        /* الأجهزة الكبيرة */
+        @media (min-width: 768px) {
+            .main-container { max-width: 800px; }
+            .hero h1 { font-size: 36px; }
+            .hero p { font-size: 15px; max-width: 500px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الهيدر -->
+    <header>
+        <div class="logo">ALMAKI TV ✨</div>
+        <button class="nav-btn">☰</button>
+    </header>
+
+    <!-- البنر الرئيسي الفخم -->
+    <section class="hero">
+        <h1>الرفيق الرقمي لتجربة ترفيهية</h1>
+        <p>تصفح واشترك في أفضل باقات الـ IPTV العالمية بدقة ثبات فائقة وجودة خيالية وبدون أي تقطيع</p>
+        <a href="#packages" class="btn-main">استعرض الباقات الآن</a>
+    </section>
+
+    <!-- الحاوية الموحدة للمحتوى -->
+    <div class="main-container" id="packages">
+        
+        <div class="section-title">الأكثر اعتماداً في متجرنا</div>
+
+        <!-- 1. قسم باقات EVEREST TV -->
+        <div class="server-box">
+            <div class="server-header">
+                <img src="IMG-20260622-WA0018.jpg" class="server-logo" alt="Everest">
+                <div class="server-name">سيرفر ايفرست</div>
+                <div class="server-desc">ثبات أسطوري ومكتبة ضخمة</div>
+            </div>
+            <div class="cards-grid">
+                <div class="card-item">
+                    <div><div class="card-duration">سنة كاملة</div><div class="card-title">جهازين</div></div>
+                    <div><div class="card-price">180 ر.س</div><a href="https://wa.me/YOUR_NUMBER?text=طلب ايفرست سنة جهازين" class="btn-order">اطلب الآن</a></div>
+                </div>
+                <div class="card-item">
+                    <div><div class="card-duration">سنة كاملة</div><div class="card-title">جهاز واحد</div></div>
+                    <div><div class="card-price">140 ر.س</div><a href="https://wa.me/YOUR_NUMBER?text=طلب ايفرست سنة جهاز واحد" class="btn-order">اطلب الآن</a></div>
+                </div>
+            </div>
+            <div class="single-card-row">
+                <div class="card-item">
+                    <div><div class="card-duration">6 شهور</div><div class="card-title">جهاز واحد</div></div>
+                    <div><div class="card-price">100 ر.س</div><a href="https://wa.me/YOUR_NUMBER?text=طلب ايفرست 6 شهور" class="btn-order">اطلب الآن</a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. قسم باقات HULK PLAYER -->
+        <div class="server-box">
+            <div class="server-header">
+                <img src="20260701_205303.jpg" class="server-logo" alt="Hulk">
+                <div class="server-name">سيرفر هولك</div>
+                <div class="server-desc">الباقة العملاقة للأفلام والمباريات</div>
+            </div>
+            <div class="cards-grid">
+                <div class="card-item">
+                    <div><div class="card-duration">سنة كاملة</div><div class="card-title">جهازين</div></div>
+                    <div><div class="card-price">230 ر.س</div><a href="https://wa.me/YOUR_NUMBER?text=طلب هولك سنة جهازين" class="btn-order">اطلب الآن</a></div>
+                </div>
+                <div class="card-item">
+                    <div><div class="card-duration">6 شهور</div><div class="card-title">جهازين</div></div>
+                    <div><div class="card-price">150 ر.س</div><a href="https://wa.me/YOUR_NUMBER?text=طلب هولك 6 شهور" class="btn-order">اطلب الآن</a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. قسم باقات STRONG 4K -->
+        <div class="server-box">
+            <div class="server-header">
+                <img src="20260701_205703.jpg" class="server-logo" alt="Strong">
+                <div class="server-name">سيرفر سترونج</div>
+                <div class="server-desc">أعلى دقة بث 4K حقيقية</div>
+            </div>
+            <div class="cards-grid">
+                <div class="card-item">
+                    <div><div class="card-duration">سنة كاملة</div><div class="card-title">جهاز واحد</div></div>
+                    <div><div class="card-price">320 ر.س</div><a href="https://wa.me/YOUR_NUMBER?text=طلب سترونج سنة" class="btn-order">اطلب الآن</a></div>
+                </div>
+                <div class="card-item">
+                    <div><div class="card-duration">6 شهور</div><div class="card-title">جهاز واحد</div></div>
+                    <div><div class="card-price">210 ر.س</div><a href="https://wa.me/YOUR_NUMBER?text=طلب سترونج 6 شهور" class="btn-order">اطلب الآن</a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. قسم باقات FALCON IPTV -->
+        <div class="server-box">
+            <div class="server-header">
+                <img src="20260701_205239.jpg" class="server-logo" alt="Falcon">
+                <div class="server-name">سيرفر فالكون</div>
+                <div class="server-desc">سيرفر العائلة المميز والمستقر</div>
+            </div>
+            <div class="cards-grid">
+                <div class="card-item">
+                    <div><div class="card-duration">سنة كاملة</div><div class="card-title">جهاز واحد</div></div>
+                    <div><div class="card-price">180 ر.س</div><a href="https://wa.me/YOUR_NUMBER?text=طلب فالكون سنة" class="btn-order">اطلب الآن</a></div>
+                </div>
+                <div class="card-item">
+                    <div><div class="card-duration">6 شهور</div><div class="card-title">جهاز واحد</div></div>
+                    <div><div class="card-price">200 ر.س</div><a href="https://wa.me/YOUR_NUMBER?text=طلب فالكون 6 شهور" class="btn-order">اطلب الآن</a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. قسم باقات SPIDER TV -->
+        <div class="server-box">
+            <div class="server-header">
+                <img src="20260701_205322.jpg" class="server-logo" alt="Spider">
+                <div class="server-name">سيرفر سبايدر</div>
+                <div class="server-desc">أداء سريع وسيرفرات خفيفة</div>
+            </div>
+            <div class="single-card-row">
+                <div class="card-item">
+                    <div><div class="card-duration">سنة كاملة</div><div class="card-title">جهاز واحد</div></div>
+                    <div><div class="card-price">260 ر.س</div><a href="https://wa.me/YOUR_NUMBER?text=طلب سبايدر سنة" class="btn-order">اطلب الآن</a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. قسم باقات IPTV SMARTERS -->
+        <div class="server-box">
+            <div class="server-header">
+                <img src="20260701_205703.jpg" class="server-logo" alt="Smarters">
+                <div class="server-name">تطبيق Smarters Pro</div>
+                <div class="server-desc">التطبيق الأشهر والأسهل تشغيلاً</div>
+            </div>
+            <div class="single-card-row">
+                <div class="card-item">
+                    <div><div class="card-duration">سنة كاملة</div><div class="card-title">جهاز واحد</div></div>
+                    <div><div class="card-price">150 ر.س</div><a href="https://wa.me/YOUR_NUMBER?text=طلب سمارترز سنة" class="btn-order">اطلب الآن</a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم خطوات التفعيل -->
+        <div class="section-title">طريقتك تهمنا</div>
+        <div class="step-section">
+            <div class="step-box">
+                <div class="step-icon">📱</div>
+                <div class="step-content">
+                    <h3>الشهير والتقليدي</h3>
+                    <p>يدعم التفعيل عبر الأجهزة الذكية والشاشات والـ Android TV بسهولة كاملة.</p>
+                </div>
+            </div>
+            <div class="step-box">
+                <div class="step-icon">🌐</div>
+                <div class="step-content">
+                    <h3>الملف والرابط الذكي</h3>
+                    <p>تفعيل مباشر عبر روابط الـ M3U والأكواد الرسمية الخاصة بكل سيرفر.</p>
+                </div>
+            </div>
+            <div class="step-box">
+                <div class="step-icon">📺</div>
+                <div class="step-content">
+                    <h3>شاشات ورسيفر مي</h3>
+                    <p>توافقية تامة مع أجهزة الـ Xiaomi Mi Box وكافة رسيفرات التلفزيون الذكي.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم لماذا تختار ALMAKI TV -->
+        <div class="section-title">لماذا تختار ALMAKI TV؟</div>
+        <div class="step-section">
+            <div class="step-box">
+                <div class="step-icon">⚡</div>
+                <div class="step-content">
+                    <h3>سرعة هائلة</h3>
+                    <p>بث مباشر بدون تقطيع بفضل خوادمنا الموزعة والمحمية.</p>
+                </div>
+            </div>
+            <div class="step-box">
+                <div class="step-icon">⭐</div>
+                <div class="step-content">
+                    <h3>جودة فائقة</h3>
+                    <p>دعم كامل لدقات 4K و Ultra HD لكافة القنوات والمسلسلات.</p>
+                </div>
+            </div>
+            <div class="step-box">
+                <div class="step-icon">🎧</div>
+                <div class="step-content">
+                    <h3>دعم 24/7</h3>
+                    <p>فريق دعم فني متكامل وجاهز لخدمتك وحل استفساراتك فوراً.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-logo">ALMAKI TV ✨</div>
+        <p>جميع الحقوق محفوظة &copy; 2026</p>
+    </footer>
+
+</body>
+</html>
