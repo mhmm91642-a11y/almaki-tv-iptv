@@ -4,7 +4,7 @@ import { PackageCard } from "@/components/PackageCard";
 import { ProductDetailDrawer } from "@/components/ProductDetailDrawer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { GlobalFooter } from "@/components/GlobalFooter";
-import { packages, Package, Plan } from "@/data/packages";
+import { packages, Package } from "@/data/packages";
 import { useCurrency } from "@/hooks/useCurrency";
 import { useLocation } from "wouter";
 
@@ -22,13 +22,13 @@ function LinkButton({ href, children }: { href: string; children: React.ReactNod
 
 export default function Home() {
   const [selectedPackage, setSelectedPackage] = useState<Package | null>(null);
-  const [selectedPlan, setSelectedPlan] = useState<Plan | null>(null);
+  const [selectedDuration, setSelectedDuration] = useState<"3" | "6" | "12" | null>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const { currency, setCurrency, availableCurrencies } = useCurrency();
 
-  const handleSelectPlan = (pkg: Package, plan: Plan) => {
+  const handleSelectPlan = (pkg: Package, duration: "3" | "6" | "12") => {
     setSelectedPackage(pkg);
-    setSelectedPlan(plan);
+    setSelectedDuration(duration);
     setDrawerOpen(true);
   };
 
@@ -208,7 +208,7 @@ export default function Home() {
         open={drawerOpen}
         onOpenChange={setDrawerOpen}
         pkg={selectedPackage}
-        plan={selectedPlan}
+        duration={selectedDuration}
       />
 
       {/* Floating WhatsApp Button */}

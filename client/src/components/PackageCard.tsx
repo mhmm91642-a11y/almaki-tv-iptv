@@ -1,38 +1,49 @@
 import { Button } from "@/components/ui/button";
-import { Package, Plan } from "@/data/packages";
+import { Package } from "@/data/packages";
 import { useCurrency } from "@/hooks/useCurrency";
 
 interface PackageCardProps {
   pkg: Package;
-  onSelectPlan: (pkg: Package, plan: Plan) => void;
+  onSelectPlan: (pkg: Package, duration: "3" | "6" | "12") => void;
 }
 
 export function PackageCard({ pkg, onSelectPlan }: PackageCardProps) {
   const { convertPrice } = useCurrency();
 
+  // Premium 2-Row Grid Layout
+  // Row 1: 12 months + 6 months
+  // Row 2: 3 months (centered)
+  
+  const durations: Array<{ key: "3" | "6" | "12"; label: string }> = [
+    { key: "12", label: "سنة كاملة" },
+    { key: "6", label: "6 شهور" },
+    { key: "3", label: "3 شهور" },
+  ];
+
   return (
     <div className="bg-card border-2 border-primary rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
       <div className="text-center mb-6">
         <h3 className="text-xl font-bold text-foreground mb-2">{pkg.name}</h3>
-        <p className="text-sm text-muted-foreground">{pkg.description}</p>
+        <p className="text-sm text-muted-foreground">{pkg.subtitle}</p>
       </div>
 
       <div className="space-y-3">
-        {pkg.plans.map((plan, idx) => {
-          const converted = convertPrice(plan.price);
+        {durations.map(({ key, label }) => {
+          const price = pkg.prices[key];
+          const originalPrice = key === "12" ? pkg.originalPrice12 : undefined;
+          const converted = convertPrice(price);
+          const convertedOriginal = originalPrice ? convertPrice(originalPrice) : null;
+
           return (
             <div
-              key={idx}
+              key={key}
               className="flex items-center justify-between p-3 bg-secondary rounded-lg border border-border hover:border-primary transition-colors"
             >
               <div className="text-right flex-1">
-                <p className="text-sm font-medium text-foreground">
-                  {plan.duration}
-                </p>
-                {plan.originalPrice && (
+                <p className="text-sm font-medium text-foreground">{label}</p>
+                {originalPrice && (
                   <p className="text-xs text-muted-foreground line-through">
-                    {convertPrice(plan.originalPrice).amount}{" "}
-                    {convertPrice(plan.originalPrice).symbol}
+                    {convertedOriginal?.amount} {convertedOriginal?.symbol}
                   </p>
                 )}
               </div>
@@ -44,7 +55,7 @@ export function PackageCard({ pkg, onSelectPlan }: PackageCardProps) {
               <Button
                 size="sm"
                 className="ml-3 bg-primary text-primary-foreground hover:bg-primary/90"
-                onClick={() => onSelectPlan(pkg, plan)}
+                onClick={() => onSelectPlan(pkg, key)}
               >
                 اختر
               </Button>

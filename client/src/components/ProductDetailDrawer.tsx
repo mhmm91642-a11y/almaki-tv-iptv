@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from "@/components/ui/drawer";
-import { Package, Plan } from "@/data/packages";
+import { Package } from "@/data/packages";
 import { useCurrency } from "@/hooks/useCurrency";
 import { useNumberTicker } from "@/hooks/useNumberTicker";
 
@@ -8,27 +8,36 @@ interface ProductDetailDrawerProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   pkg: Package | null;
-  plan: Plan | null;
+  duration: "3" | "6" | "12" | null;
 }
 
 export function ProductDetailDrawer({
   open,
   onOpenChange,
   pkg,
-  plan,
+  duration,
 }: ProductDetailDrawerProps) {
   const { convertPrice } = useCurrency();
-  const channelsCount = useNumberTicker(pkg?.channels || 0, 1500, open);
-  const moviesCount = useNumberTicker(pkg?.movies || 0, 1500, open);
-  const seriesCount = useNumberTicker(pkg?.series || 0, 1500, open);
+  const channelsCount = useNumberTicker(pkg?.features.channels || 0, 1500, open);
+  const moviesCount = useNumberTicker(pkg?.features.movies || 0, 1500, open);
+  const seriesCount = useNumberTicker(pkg?.features.series || 0, 1500, open);
 
-  if (!pkg || !plan) return null;
+  if (!pkg || !duration) return null;
 
-  const converted = convertPrice(plan.price);
+  const price = pkg.prices[duration as "3" | "6" | "12"];
+  const originalPrice = duration === "12" ? pkg.originalPrice12 : undefined;
+  const converted = convertPrice(price);
+  
+  const durationLabel = {
+    "3": "3 شهور",
+    "6": "6 شهور",
+    "12": "سنة كاملة",
+  }[duration];
+
   const whatsappNumber = "+966580928565";
   const message = `مرحباً 9kpro TV، أود الاشتراك في الباقة التالية:
 🔹 السيرفر: ${pkg.name}
-⏱️ المدة: ${plan.duration}
+⏱️ المدة: ${durationLabel}
 💰 السعر: ${converted.amount} ${converted.symbol}
 يرجى تزويدي بطرق الدفع المتاحة لتفعيل الاشتراك.`;
 
@@ -39,25 +48,21 @@ export function ProductDetailDrawer({
       <DrawerContent className="bg-card border-border">
         <DrawerHeader className="border-b border-border">
           <DrawerTitle className="text-right text-primary text-2xl">
-            {pkg.name} - {plan.duration}
+            {pkg.name} - {durationLabel}
           </DrawerTitle>
+          <p className="text-sm text-muted-foreground mt-2">{pkg.subtitle}</p>
         </DrawerHeader>
 
         <div className="p-6 space-y-6 max-h-[80vh] overflow-y-auto">
-          {/* Features Grid */}
-          <div className="grid grid-cols-3 gap-4">
-            {pkg.features.map((feature, idx) => (
+          {/* Benefits Grid */}
+          <div className="grid grid-cols-2 gap-3">
+            {(pkg.benefits || []).map((benefit, idx) => (
               <div
                 key={idx}
-                className="text-center p-4 bg-secondary rounded-lg border border-border"
+                className="flex items-center gap-2 p-3 bg-secondary rounded-lg border border-border"
               >
-                <div className="text-3xl mb-2">{feature.icon}</div>
-                <p className="text-sm font-medium text-foreground">
-                  {feature.title}
-                </p>
-                <p className="text-xs text-muted-foreground mt-1">
-                  {feature.description}
-                </p>
+                <span className="text-primary">✓</span>
+                <p className="text-sm font-medium text-foreground">{benefit}</p>
               </div>
             ))}
           </div>
@@ -92,12 +97,12 @@ export function ProductDetailDrawer({
                 {converted.amount} {converted.symbol}
               </span>
             </div>
-            {plan.originalPrice && (
+            {originalPrice && (
               <p className="text-sm text-muted-foreground text-center">
                 السعر الأصلي:{" "}
                 <span className="line-through">
-                  {convertPrice(plan.originalPrice).amount}{" "}
-                  {convertPrice(plan.originalPrice).symbol}
+                  {convertPrice(originalPrice).amount}{" "}
+                  {convertPrice(originalPrice).symbol}
                 </span>
               </p>
             )}

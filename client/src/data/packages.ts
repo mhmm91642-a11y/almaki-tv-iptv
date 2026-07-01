@@ -1,13 +1,21 @@
 export interface Package {
   id: string;
   name: string;
-  description: string;
+  subtitle: string;
   logo?: string;
-  plans: Plan[];
-  features: Feature[];
-  channels: number;
-  movies: number;
-  series: number;
+  prices: {
+    '3': number;
+    '6': number;
+    '12': number;
+  };
+  originalPrice12?: number;
+  features: {
+    channels: number;
+    movies: number;
+    series: number;
+  };
+  color: string;
+  benefits?: string[];
 }
 
 export interface Plan {
@@ -23,7 +31,160 @@ export interface Feature {
   description: string;
 }
 
+// New IPTV Store Builder format
 export const packages: Package[] = [
+  // Premium Tier
+  {
+    id: "strong",
+    name: "اشتراكات سترونق 4K",
+    subtitle: "أعلى دقة بث 4K حقيقية",
+    prices: {
+      '3': 80,
+      '6': 130,
+      '12': 199,
+    },
+    features: {
+      channels: 10000,
+      movies: 70000,
+      series: 15000,
+    },
+    color: "#FFD700",
+    benefits: [
+      "بث مباشر بدون تقطيع",
+      "دعم 4K و Ultra HD",
+      "أحدث الأفلام والمسلسلات",
+      "دعم متعدد الأجهزة",
+      "تحديثات يومية",
+      "دعم 24/7",
+    ],
+  },
+  // Standard Tier
+  {
+    id: "everest",
+    name: "سيرفر إيفرست",
+    subtitle: "الاشتراك الأفضل",
+    prices: {
+      '3': 80,
+      '6': 130,
+      '12': 190,
+    },
+    originalPrice12: 250,
+    features: {
+      channels: 10000,
+      movies: 30000,
+      series: 13000,
+    },
+    color: "#1e90ff",
+    benefits: [
+      "ثبات أسطوري",
+      "مكتبة ضخمة",
+      "جودة عالية",
+      "تفعيل سهل",
+      "سرعة فائقة",
+      "دعم فني متميز",
+    ],
+  },
+  {
+    id: "hulk",
+    name: "اشتراكات هولك",
+    subtitle: "الباقة العملاقة للأفلام والمباريات",
+    prices: {
+      '3': 100,
+      '6': 150,
+      '12': 250,
+    },
+    features: {
+      channels: 10000,
+      movies: 33000,
+      series: 7000,
+    },
+    color: "#D4AF37",
+    benefits: [
+      "مباريات حية",
+      "أفلام جديدة",
+      "مسلسلات عالمية",
+      "جودة 4K",
+      "بث مستقر",
+      "دعم متواصل",
+    ],
+  },
+  {
+    id: "falcon",
+    name: "اشتراكات فالكون الأصلي",
+    subtitle: "الاشتراك العصري الغني عن التعريف",
+    prices: {
+      '3': 130,
+      '6': 200,
+      '12': 300,
+    },
+    features: {
+      channels: 7000,
+      movies: 24000,
+      series: 10000,
+    },
+    color: "#FFD700",
+    benefits: [
+      "للعائلة",
+      "محتوى آمن",
+      "مستقر 24/7",
+      "متميز",
+      "سعر مناسب",
+      "دعم سريع",
+    ],
+  },
+  // Budget Tier
+  {
+    id: "vulture",
+    name: "اشتراكات فولتشر",
+    subtitle: "الاشتراك الترفيهي المتميز",
+    prices: {
+      '3': 69,
+      '6': 99,
+      '12': 149,
+    },
+    features: {
+      channels: 10000,
+      movies: 25000,
+      series: 15000,
+    },
+    color: "#D4AF37",
+    benefits: [
+      "سعر اقتصادي",
+      "أفضل قيمة",
+      "ترفيه متنوع",
+      "متعدد الأجهزة",
+      "تحديثات منتظمة",
+      "دعم موثوق",
+    ],
+  },
+  {
+    id: "smarters",
+    name: "تطبيق Smarters Pro",
+    subtitle: "التطبيق الأشهر والأسهل تشغيلاً",
+    prices: {
+      '3': 0,
+      '6': 0,
+      '12': 99,
+    },
+    features: {
+      channels: 10000,
+      movies: 33000,
+      series: 7000,
+    },
+    color: "#D4AF37",
+    benefits: [
+      "تطبيق سهل",
+      "الأشهر عالمياً",
+      "سريع جداً",
+      "واجهة بسيطة",
+      "توافق عام",
+      "دعم ممتاز",
+    ],
+  },
+];
+
+// Legacy format (keep for backward compatibility)
+export const packagesLegacy = [
   {
     id: "everest",
     name: "سيرفر إيفرست",
@@ -41,94 +202,6 @@ export const packages: Package[] = [
     channels: 10000,
     movies: 30000,
     series: 13000,
-  },
-  {
-    id: "strong",
-    name: "اشتراكات سترونق 4K",
-    description: "أعلى دقة بث 4K حقيقية",
-    plans: [
-      { duration: "6 شهور", durationMonths: 6, price: 130 },
-      { duration: "سنة كاملة", durationMonths: 12, price: 199 },
-      { duration: "3 شهور", durationMonths: 3, price: 80 },
-    ],
-    features: [
-      { icon: "🎥", title: "دقة 4K", description: "أعلى جودة متاحة" },
-      { icon: "⚡", title: "سرعة فائقة", description: "تحميل فوري" },
-      { icon: "🌍", title: "محتوى عالمي", description: "قنوات من جميع أنحاء العالم" },
-    ],
-    channels: 10000,
-    movies: 70000,
-    series: 15000,
-  },
-  {
-    id: "hulk",
-    name: "اشتراكات هولك",
-    description: "الباقة العملاقة للأفلام والمباريات",
-    plans: [
-      { duration: "6 شهور", durationMonths: 6, price: 150 },
-      { duration: "سنة كاملة", durationMonths: 12, price: 250 },
-      { duration: "3 شهور", durationMonths: 3, price: 100 },
-    ],
-    features: [
-      { icon: "🏆", title: "مباريات حية", description: "أحدث المباريات الرياضية" },
-      { icon: "🎬", title: "أفلام جديدة", description: "أحدث الإصدارات" },
-      { icon: "📺", title: "مسلسلات", description: "مسلسلات عالمية وعربية" },
-    ],
-    channels: 10000,
-    movies: 33000,
-    series: 7000,
-  },
-  {
-    id: "falcon",
-    name: "اشتراكات فالكون الأصلي",
-    description: "الاشتراك العصري الغني عن التعريف",
-    plans: [
-      { duration: "6 شهور", durationMonths: 6, price: 200 },
-      { duration: "سنة كاملة", durationMonths: 12, price: 300 },
-      { duration: "3 شهور", durationMonths: 3, price: 130 },
-    ],
-    features: [
-      { icon: "👨‍👩‍👧‍👦", title: "للعائلة", description: "محتوى آمن للأطفال" },
-      { icon: "🎯", title: "مستقر", description: "خدمة موثوقة 24/7" },
-      { icon: "💎", title: "متميز", description: "جودة عالية وسعر مناسب" },
-    ],
-    channels: 7000,
-    movies: 24000,
-    series: 10000,
-  },
-  {
-    id: "vulture",
-    name: "اشتراكات فولتشر",
-    description: "الاشتراك الترفيهي المتميز",
-    plans: [
-      { duration: "6 شهور", durationMonths: 6, price: 99 },
-      { duration: "سنة كاملة", durationMonths: 12, price: 149 },
-      { duration: "3 شهور", durationMonths: 3, price: 69 },
-    ],
-    features: [
-      { icon: "💰", title: "سعر اقتصادي", description: "أفضل قيمة مقابل السعر" },
-      { icon: "🎮", title: "ترفيه متنوع", description: "محتوى متنوع وممتع" },
-      { icon: "📱", title: "متعدد الأجهزة", description: "استخدم على عدة أجهزة" },
-    ],
-    channels: 10000,
-    movies: 25000,
-    series: 15000,
-  },
-  {
-    id: "smarters",
-    name: "تطبيق Smarters Pro",
-    description: "التطبيق الأشهر والأسهل تشغيلاً",
-    plans: [
-      { duration: "سنة كاملة", durationMonths: 12, price: 99 },
-    ],
-    features: [
-      { icon: "📲", title: "تطبيق سهل", description: "واجهة بسيطة وسهلة الاستخدام" },
-      { icon: "⭐", title: "الأشهر", description: "الخيار الأول للملايين" },
-      { icon: "🚀", title: "سريع", description: "أداء ممتاز وسلس" },
-    ],
-    channels: 10000,
-    movies: 33000,
-    series: 7000,
   },
 ];
 
