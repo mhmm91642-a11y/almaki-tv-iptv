@@ -162,31 +162,7 @@ export const packages: Package[] = [
       "دعم موثوق",
     ],
   },
-  {
-    id: "smarters",
-    name: "تطبيق Smarters Pro",
-    subtitle: "التطبيق الأشهر والأسهل تشغيلاً",
-    logo: "/manus-storage/smarters-pro_5dd5f9b4.jpg",
-    prices: {
-      '3': 0,
-      '6': 0,
-      '12': 99,
-    },
-    features: {
-      channels: 10000,
-      movies: 33000,
-      series: 7000,
-    },
-    color: "#D4AF37",
-    benefits: [
-      "تطبيق سهل",
-      "الأشهر عالمياً",
-      "سريع جداً",
-      "واجهة بسيطة",
-      "توافق عام",
-      "دعم ممتاز",
-    ],
-  },
+
 ];
 
 // Legacy format (keep for backward compatibility)
