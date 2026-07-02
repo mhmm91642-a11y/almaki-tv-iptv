@@ -10,30 +10,31 @@ interface PackageCardProps {
 export function PackageCard({ pkg, onSelectPlan }: PackageCardProps) {
   const { convertPrice } = useCurrency();
 
-  // 2-Column Grid Layout with all durations
-  // Each card shows: Logo, Name, Duration, Price (with strikethrough original)
+  // Compact 2-Column Grid Layout
+  // Each card shows: Logo, Name, and all durations in a compact horizontal layout
   
   const durations: Array<{ key: "3" | "6" | "12"; label: string }> = [
-    { key: "12", label: "سنة كاملة" },
-    { key: "6", label: "6 شهور" },
     { key: "3", label: "3 شهور" },
+    { key: "6", label: "6 شهور" },
+    { key: "12", label: "سنة" },
   ];
 
   return (
-    <div className="bg-card border-2 border-primary rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
-      <div className="text-center mb-6">
+    <div className="bg-card border-2 border-primary rounded-xl p-4 hover:shadow-lg transition-shadow duration-300 h-full flex flex-col">
+      {/* Header with Logo and Name */}
+      <div className="text-center mb-4 pb-4 border-b border-border">
         {pkg.logo && (
           <img
             src={pkg.logo}
             alt={pkg.name}
-            className="h-16 w-auto mx-auto mb-4 object-contain"
+            className="h-12 w-auto mx-auto mb-2 object-contain"
           />
         )}
-        <h3 className="text-xl font-bold text-foreground mb-2">{pkg.name}</h3>
-        <p className="text-sm text-muted-foreground">{pkg.subtitle}</p>
+        <h3 className="text-lg font-bold text-foreground">{pkg.name}</h3>
       </div>
 
-      <div className="space-y-3">
+      {/* Pricing Options - Compact Layout */}
+      <div className="space-y-2 flex-1">
         {durations.map(({ key, label }) => {
           const price = pkg.prices[key];
           let originalPrice: number | undefined;
@@ -53,24 +54,24 @@ export function PackageCard({ pkg, onSelectPlan }: PackageCardProps) {
           return (
             <div
               key={key}
-              className="flex items-center justify-between p-3 bg-secondary rounded-lg border border-border hover:border-primary transition-colors"
+              className="flex items-center justify-between p-2 bg-secondary rounded-lg border border-border hover:border-primary transition-colors text-sm"
             >
               <div className="text-right flex-1">
-                <p className="text-sm font-medium text-foreground">{label}</p>
+                <p className="font-medium text-foreground">{label}</p>
                 {convertedOriginal && (
                   <p className="text-xs text-muted-foreground line-through">
                     {convertedOriginal.amount} {convertedOriginal.symbol}
                   </p>
                 )}
               </div>
-              <div className="text-left ml-4">
-                <p className="text-lg font-bold text-primary">
+              <div className="text-left mx-2">
+                <p className="font-bold text-primary">
                   {converted.amount} {converted.symbol}
                 </p>
               </div>
               <Button
                 size="sm"
-                className="ml-3 bg-primary text-primary-foreground hover:bg-primary/90"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 text-xs px-2 py-1 h-auto"
                 onClick={() => onSelectPlan(pkg, key)}
               >
                 اختر

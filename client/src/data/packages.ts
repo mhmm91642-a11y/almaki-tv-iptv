@@ -169,7 +169,7 @@ export const packages: Package[] = [
     id: "universe",
     name: "Universe TV",
     subtitle: "خدمة بث متميزة",
-    logo: "/manus-storage/universe_tv.jpg",
+    logo: "/manus-storage/Y1lwTVRbymt6_e4b88f02.jpg",
     prices: {
       '3': 100,
       '6': 150,
@@ -197,7 +197,7 @@ export const packages: Package[] = [
     id: "alfa",
     name: "Alfa TV",
     subtitle: "تجربة بث احترافية",
-    logo: "/manus-storage/alfa_tv.jpg",
+    logo: "/manus-storage/RlyfUleIpM52_0c106d70.jpg",
     prices: {
       '3': 90,
       '6': 130,
