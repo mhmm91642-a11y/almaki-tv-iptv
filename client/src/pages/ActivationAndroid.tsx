@@ -17,7 +17,7 @@ export default function ActivationAndroid() {
           >
             ← العودة للرئيسية
           </button>
-          <h1 className="text-2xl font-bold text-primary">9kpro TV</h1>
+          <h1 className="text-2xl font-bold text-primary">ALMAKI TV</h1>
         </div>
       </header>
 
@@ -44,7 +44,7 @@ export default function ActivationAndroid() {
                 </li>
                 <li className="flex gap-4">
                   <span className="text-primary font-bold text-lg">2.</span>
-                  <span>ابحث عن "9kpro TV" في شريط البحث</span>
+                  <span>ابحث عن "ALMAKI TV" في شريط البحث</span>
                 </li>
                 <li className="flex gap-4">
                   <span className="text-primary font-bold text-lg">3.</span>

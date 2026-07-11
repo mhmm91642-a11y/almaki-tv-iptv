@@ -48,20 +48,20 @@ export function FAQSection() {
           {faqs.map((faq, idx) => (
             <div
               key={idx}
-              className="bg-card border-2 border-primary rounded-xl overflow-hidden hover:shadow-lg hover:shadow-primary/20 transition-all duration-300"
+              className="bg-card border-2 border-primary rounded-xl overflow-hidden hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 gpu-accelerated"
             >
               {/* Question Header */}
               <button
                 onClick={() =>
                   setOpenIndex(openIndex === idx ? null : idx)
                 }
-                className="w-full px-8 py-6 flex items-center justify-between hover:bg-secondary/50 transition-colors duration-200"
+                className="w-full px-8 py-6 flex items-center justify-between hover:bg-secondary/50 transition-colors duration-200 gpu-accelerated"
               >
                 <h3 className="text-lg font-bold text-foreground text-right">
                   {faq.question}
                 </h3>
                 <ChevronDown
-                  className={`text-primary transition-transform duration-300 flex-shrink-0 ml-4 ${
+                  className={`text-primary transition-transform duration-300 flex-shrink-0 ml-4 gpu-accelerated will-change-transform ${
                     openIndex === idx ? "rotate-180" : ""
                   }`}
                   size={24}

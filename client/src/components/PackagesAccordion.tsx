@@ -19,7 +19,7 @@ export function PackagesAccordion({
   };
 
   return (
-    <div className="space-y-3 md:space-y-4">
+    <div className="space-y-4 md:space-y-6 lg:space-y-8">
       {packages.map((pkg, index) => (
         <div
           key={pkg.id}
@@ -28,10 +28,10 @@ export function PackagesAccordion({
           {/* Accordion Header */}
           <button
             onClick={() => toggleAccordion(index)}
-            className="w-full px-4 md:px-6 py-4 md:py-5 flex items-center justify-between hover:bg-secondary/50 transition-colors duration-200"
+            className="w-full px-4 md:px-6 lg:px-8 py-5 md:py-6 lg:py-7 flex items-center justify-between hover:bg-secondary/50 transition-colors duration-200"
           >
             {/* Logo + Name */}
-            <div className="flex items-center gap-3 md:gap-4 flex-1 min-w-0">
+            <div className="flex items-center gap-4 md:gap-5 lg:gap-6 flex-1 min-w-0">
               {pkg.logo && (
                 <img
                   src={pkg.logo}
@@ -41,11 +41,11 @@ export function PackagesAccordion({
                 />
               )}
               <div className="flex-1 min-w-0 text-right">
-                <h3 className="text-base md:text-lg font-bold text-foreground">
+                <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-foreground">
                   {pkg.name}
                 </h3>
                 {pkg.subtitle && (
-                  <p className="text-xs md:text-sm text-muted-foreground mt-1">
+                  <p className="text-sm md:text-base text-muted-foreground mt-2">
                     {pkg.subtitle}
                   </p>
                 )}
@@ -54,7 +54,7 @@ export function PackagesAccordion({
 
             {/* Chevron Icon */}
             <ChevronDown
-              className={`text-primary flex-shrink-0 ml-4 transition-transform duration-300 ${
+              className={`text-primary flex-shrink-0 ml-6 transition-transform duration-300 ${
                 expandedIndex === index ? "rotate-180" : ""
               }`}
               size={24}
@@ -64,9 +64,9 @@ export function PackagesAccordion({
           {/* Accordion Content - Animated */}
           {expandedIndex === index && (
             <div className="animate-in fade-in slide-in-from-top-2 duration-300">
-              <div className="px-4 md:px-6 py-4 md:py-6 border-t-2 border-primary/30 bg-secondary/30">
+              <div className="px-4 md:px-6 lg:px-8 py-6 md:py-8 lg:py-10 border-t-2 border-primary/30 bg-secondary/30">
                 {/* Pricing Grid - 3 columns */}
-                <div className="grid grid-cols-3 gap-2 md:gap-4">
+                <div className="grid grid-cols-3 gap-3 md:gap-5 lg:gap-6">
                   {/* 3 Months */}
                   <PricingOption
                     label="3 أشهر"
@@ -174,7 +174,7 @@ function PricingOption({
 
   return (
     <div
-      className={`bg-card border-2 rounded-lg p-3 md:p-4 text-center transition-all duration-300 ${
+      className={`bg-card border-2 rounded-lg p-4 md:p-5 lg:p-6 text-center transition-all duration-300 ${
         isBestSeller
           ? "border-primary ring-2 ring-primary/30 scale-105 md:scale-105"
           : "border-primary/50 hover:border-primary"
@@ -182,35 +182,35 @@ function PricingOption({
     >
       {/* Best Seller Badge */}
       {isBestSeller && (
-        <div className="mb-2 inline-block bg-primary text-primary-foreground px-2 py-1 rounded text-xs font-bold">
+        <div className="mb-3 md:mb-4 inline-block bg-primary text-primary-foreground px-3 py-2 rounded text-sm font-bold">
           🔥 الأكثر مبيعاً
         </div>
       )}
 
       {/* Duration Label */}
-      <p className="text-xs md:text-sm font-semibold text-foreground mb-2">
+      <p className="text-sm md:text-base font-semibold text-foreground mb-3">
         {label}
       </p>
 
       {/* Original Price (Strikethrough) */}
       {originalPrice && (
-        <p className="text-xs text-muted-foreground line-through mb-1">
+        <p className="text-sm text-muted-foreground line-through mb-2">
           {originalPrice} ريال
         </p>
       )}
 
       {/* Current Price */}
-      <div className="mb-3">
-        <p className="text-2xl md:text-3xl font-black text-primary">
+      <div className="mb-4 md:mb-5">
+        <p className="text-3xl md:text-4xl font-black text-primary">
           {price}
         </p>
-        <p className="text-xs text-muted-foreground mt-1">ريال سعودي</p>
+        <p className="text-sm text-muted-foreground mt-2">ريال سعودي</p>
       </div>
 
       {/* Subscribe Button */}
       <button
         onClick={() => onSelectPlan(pkg, duration)}
-        className={`w-full font-bold text-sm md:text-base py-2 md:py-3 rounded-lg transition-all duration-300 hover:scale-105 active:scale-95 ${
+        className={`w-full font-bold text-base md:text-lg py-3 md:py-4 rounded-lg transition-all duration-300 hover:scale-105 active:scale-95 ${
           isBestSeller
             ? "bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-primary/50"
             : "bg-primary text-primary-foreground hover:bg-primary/90"

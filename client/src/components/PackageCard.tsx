@@ -27,7 +27,7 @@ export function PackageCard({ pkg, onSelectPlan }: PackageCardProps) {
   return (
     <div className="h-full">
       {/* Main Card Container */}
-      <div className={`bg-card border-2 border-primary rounded-xl p-6 hover:shadow-2xl hover:shadow-primary/30 transition-all duration-300 h-full flex flex-col ${
+      <div className={`bg-card border-2 border-primary rounded-xl p-6 hover:shadow-2xl hover:shadow-primary/30 transition-all duration-300 h-full flex flex-col gpu-accelerated will-change-transform ${
         pkg.id === "universe" ? "md:scale-105 md:origin-center" : ""
       }`}>
         
@@ -78,7 +78,7 @@ export function PackageCard({ pkg, onSelectPlan }: PackageCardProps) {
             return (
               <div
                 key={key}
-                className={`bg-secondary rounded-xl border-2 p-4 text-center flex flex-col justify-between transition-all duration-300 hover:border-primary hover:shadow-lg ${
+                className={`bg-secondary rounded-xl border-2 p-4 text-center flex flex-col justify-between transition-all duration-300 hover:border-primary hover:shadow-lg gpu-accelerated will-change-transform ${
                   isBestSeller 
                     ? "border-primary bg-primary/5 ring-2 ring-primary/30" 
                     : "border-border hover:bg-secondary/80"
@@ -86,7 +86,7 @@ export function PackageCard({ pkg, onSelectPlan }: PackageCardProps) {
               >
                 {/* Best Seller Badge */}
                 {isBestSeller && (
-                  <div className="mb-2">
+                  <div className="mb-2 animate-pulse-gold">
                     <span className="inline-block bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-bold">
                       🔥 الأكثر مبيعاً
                     </span>
@@ -113,7 +113,7 @@ export function PackageCard({ pkg, onSelectPlan }: PackageCardProps) {
                 
                 {/* Subscribe Button */}
                 <Button
-                  className={`w-full font-bold text-sm sm:text-base py-2 sm:py-3 rounded-lg transition-all duration-300 hover:scale-105 active:scale-95 ${
+                  className={`w-full font-bold text-sm sm:text-base py-2 sm:py-3 rounded-lg transition-all duration-300 hover:scale-105 active:scale-95 gpu-accelerated will-change-transform ${
                     isBestSeller
                       ? "bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-primary/50"
                       : "bg-primary text-primary-foreground hover:bg-primary/90"

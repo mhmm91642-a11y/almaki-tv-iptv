@@ -44,8 +44,9 @@ export function LazyImage({ src, alt, className = "", placeholder }: LazyImagePr
       ref={setImageRef}
       src={imageSrc || src}
       alt={alt}
-      className={`${className} transition-opacity duration-300`}
+      className={`${className} transition-opacity duration-300 gpu-accelerated`}
       loading="lazy"
+      decoding="async"
     />
   );
 }

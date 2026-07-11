@@ -17,7 +17,7 @@ export default function ActivationSamsungLG() {
           >
             ← العودة للرئيسية
           </button>
-          <h1 className="text-2xl font-bold text-primary">9kpro TV</h1>
+          <h1 className="text-2xl font-bold text-primary">ALMAKI TV</h1>
         </div>
       </header>
 
