@@ -75,18 +75,18 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground" dir="rtl">
       {/* Header */}
-      <header className="sticky top-0 z-40 bg-secondary border-b-2 border-primary">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <h1 className="text-3xl font-bold text-primary">ALMAKI TV</h1>
-            <span className="text-muted-foreground">✨</span>
+      <header className="sticky top-0 z-40 bg-secondary border-b-2 border-primary shadow-lg shadow-primary/10">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 py-4 md:py-5 flex items-center justify-between">
+          <div className="flex items-center gap-2 md:gap-4">
+            <h1 className="text-2xl md:text-3xl font-black text-primary">ALMAKI TV</h1>
+            <span className="text-lg md:text-xl text-muted-foreground">✨</span>
           </div>
 
           {/* Currency Selector */}
           <select
             value={currency}
             onChange={(e) => setCurrency(e.target.value)}
-            className="bg-card text-foreground border border-border rounded-lg px-3 py-2 text-sm"
+            className="bg-card text-foreground border-2 border-primary rounded-lg px-3 md:px-4 py-2 md:py-2.5 text-xs md:text-sm font-semibold cursor-pointer transition-all duration-200 hover:bg-primary/10 focus:outline-none focus:ring-2 focus:ring-primary"
           >
             {availableCurrencies.map((curr) => (
               <option key={curr} value={curr}>
@@ -98,8 +98,8 @@ export default function Home() {
       </header>
 
       {/* Hero Section - Enhanced */}
-      <section className="hero-smoke-animation py-24 md:py-32 border-b-2 border-primary">
-        <div className="max-w-6xl mx-auto px-4 text-center space-y-8">
+      <section className="hero-smoke-animation py-20 md:py-28 lg:py-32 border-b-2 border-primary">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 text-center space-y-6 md:space-y-8 lg:space-y-10">
           {/* Main Title - Larger */}
           <h2 className="text-5xl md:text-7xl font-black text-primary leading-tight">
             ارتق إلى قمة تجربة المشاهدة
@@ -111,7 +111,7 @@ export default function Home() {
           </p>
 
           {/* Features Grid - 4 Features Below Title */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto py-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 lg:gap-5 max-w-4xl mx-auto py-6 md:py-8">
             <div className="bg-black/40 backdrop-blur-sm border border-primary/30 rounded-lg p-4">
               <div className="text-primary text-2xl mb-2">✔</div>
               <p className="text-sm md:text-base text-foreground font-semibold">
@@ -144,7 +144,7 @@ export default function Home() {
           </p>
 
           {/* Trust Indicators */}
-          <div className="flex flex-wrap justify-center gap-8 py-4 text-center">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-10 py-6 md:py-8 text-center">
             <div>
               <div className="text-3xl font-bold text-primary">50,000+</div>
               <p className="text-muted-foreground text-sm">عميل راضي</p>
@@ -160,7 +160,7 @@ export default function Home() {
           </div>
 
           {/* CTA Buttons - Primary + Secondary */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center pt-4 md:pt-6">
             <button onClick={() => packagesRef.current?.scrollIntoView({ behavior: 'smooth' })} className="inline-block">
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-10 py-8 text-lg font-bold rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg hover:shadow-2xl hover:shadow-primary/50">
                 عرض الباقات
