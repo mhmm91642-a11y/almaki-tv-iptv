@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { LazyImage } from "@/components/LazyImage";
 import { Package } from "@/data/packages";
 import { useCurrency } from "@/hooks/useCurrency";
 
@@ -33,7 +34,7 @@ export function PackageCard({ pkg, onSelectPlan }: PackageCardProps) {
         {/* Header: Logo + Name (Horizontal) */}
         <div className="flex items-center gap-4 mb-6 pb-4 border-b-2 border-primary/30">
           {pkg.logo && (
-            <img
+            <LazyImage
               src={pkg.logo}
               alt={pkg.name}
               className="h-14 w-14 object-contain flex-shrink-0 rounded-lg bg-black/20 p-2"
@@ -41,12 +42,12 @@ export function PackageCard({ pkg, onSelectPlan }: PackageCardProps) {
           )}
           <div className="flex-1 min-w-0">
             <h3 className="text-lg font-bold text-foreground">{pkg.name}</h3>
-            <p className="text-xs text-muted-foreground mt-1">{pkg.subtitle}</p>
+            {pkg.subtitle && <p className="text-xs text-muted-foreground mt-1">{pkg.subtitle}</p>}
           </div>
         </div>
 
         {/* Features List */}
-        <div className="mb-6 space-y-2">
+          <div className="mb-6 space-y-2 hidden sm:block">
           {features.map((feature, idx) => (
             <p key={idx} className="text-xs text-muted-foreground">
               {feature}
@@ -55,7 +56,7 @@ export function PackageCard({ pkg, onSelectPlan }: PackageCardProps) {
         </div>
 
         {/* Pricing Grid - 3 columns */}
-        <div className="grid grid-cols-3 gap-4 flex-1 flex flex-col">
+        <div className="grid grid-cols-3 gap-2 sm:gap-4 flex-1 flex flex-col">
           {durations.map(({ key, label }) => {
             const price = pkg.prices[key];
             let originalPrice: number | undefined;
@@ -93,7 +94,7 @@ export function PackageCard({ pkg, onSelectPlan }: PackageCardProps) {
                 )}
                 
                 {/* Duration Label */}
-                <p className="text-sm font-semibold text-foreground mb-2">{label}</p>
+                <p className="text-xs sm:text-sm font-semibold text-foreground mb-2">{label}</p>
                 
                 {/* Original Price (Strikethrough) - Smaller */}
                 {convertedOriginal && (
@@ -104,7 +105,7 @@ export function PackageCard({ pkg, onSelectPlan }: PackageCardProps) {
                 
                 {/* Current Price - Much Larger and Clearer */}
                 <div className="mb-3">
-                  <p className="text-3xl font-black text-primary">
+                  <p className="text-2xl sm:text-3xl font-black text-primary">
                     {converted.amount}
                   </p>
                   <p className="text-xs text-muted-foreground mt-1">ريال سعودي</p>
@@ -112,7 +113,7 @@ export function PackageCard({ pkg, onSelectPlan }: PackageCardProps) {
                 
                 {/* Subscribe Button */}
                 <Button
-                  className={`w-full font-bold text-base py-3 rounded-lg transition-all duration-300 hover:scale-105 active:scale-95 ${
+                  className={`w-full font-bold text-sm sm:text-base py-2 sm:py-3 rounded-lg transition-all duration-300 hover:scale-105 active:scale-95 ${
                     isBestSeller
                       ? "bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover:shadow-primary/50"
                       : "bg-primary text-primary-foreground hover:bg-primary/90"
