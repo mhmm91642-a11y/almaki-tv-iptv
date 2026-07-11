@@ -40,7 +40,7 @@ export const packages: Package[] = [
     id: "strong",
     name: "اشتراكات سترونق 4K",
     subtitle: "أعلى دقة بث 4K حقيقية",
-    logo: "/manus-storage/strong4k_0b9f2076.jpg",
+    logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663796914623/kcVGfPbexyjmiETF.jpg",
     prices: {
       '3': 100,
       '6': 200,
@@ -66,7 +66,7 @@ export const packages: Package[] = [
     id: "everest",
     name: "سيرفر إيفرست",
     subtitle: "الاشتراك الأفضل",
-    logo: "/manus-storage/everest_011c17b2.jpg",
+    logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663796914623/kcVGfPbexyjmiETF.jpg",
     prices: {
       '3': 80,
       '6': 130,
@@ -92,7 +92,7 @@ export const packages: Package[] = [
     id: "hulk",
     name: "اشتراكات هولك",
     subtitle: "الباقة العملاقة للأفلام والمباريات",
-    logo: "/manus-storage/hulk_e2fb0917.jpg",
+    logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663796914623/FfamaZDWplgpVpsc.jpg",
     prices: {
       '3': 100,
       '6': 150,
@@ -117,7 +117,7 @@ export const packages: Package[] = [
     id: "falcon",
     name: "اشتراكات فالكون الأصلي",
     subtitle: "الاشتراك العصري الغني عن التعريف",
-    logo: "/manus-storage/falcon_c0d43a65.jpg",
+    logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663796914623/SipLeUqgRlJMKRWO.jpg",
     prices: {
       '3': 130,
       '6': 200,
@@ -143,7 +143,7 @@ export const packages: Package[] = [
     id: "vulture",
     name: "اشتراكات فولتشر",
     subtitle: "الاشتراك الترفيهي المتميز",
-    logo: "/manus-storage/vulture_e7b78699.jpg",
+    logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663796914623/QXUAYFCqyaEMEvup.jpg",
     prices: {
       '3': 69,
       '6': 99,
@@ -169,7 +169,7 @@ export const packages: Package[] = [
     id: "universe",
     name: "Universe TV",
     subtitle: "خدمة بث متميزة",
-    logo: "/manus-storage/Y1lwTVRbymt6_e4b88f02.jpg",
+    logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663796914623/kcVGfPbexyjmiETF.jpg",
     prices: {
       '3': 100,
       '6': 150,
@@ -197,7 +197,7 @@ export const packages: Package[] = [
     id: "alfa",
     name: "Alfa TV",
     subtitle: "تجربة بث احترافية",
-    logo: "/manus-storage/alfa-tv-logo_9fce1f0e.png",
+    logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663796914623/oaLUWHrdhlAyKCBl.png",
     prices: {
       '3': 90,
       '6': 130,
