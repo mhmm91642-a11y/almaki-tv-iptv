@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 
 export function GlobalFooter() {
-  const whatsappNumber = "+966580928565";
+  const whatsappNumber = "966592360612";
   const message = "أريد الاستفسار عن اشتراكات ALMAKI TV";
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 

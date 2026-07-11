@@ -151,7 +151,7 @@ export default function ActivationIOS() {
                 فريق الدعم الفني جاهز لمساعدتك 24/7
               </p>
               <a
-                href="https://wa.me/966580928565?text=أحتاج مساعدة في التفعيل على iOS"
+                href="https://wa.me/966592360612?text=أحتاج مساعدة في التفعيل على iOS"
                 target="_blank"
                 rel="noopener noreferrer"
               >
