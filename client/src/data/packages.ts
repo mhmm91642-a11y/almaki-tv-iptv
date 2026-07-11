@@ -40,7 +40,7 @@ export const packages: Package[] = [
     id: "strong",
     name: "اشتراكات سترونق 4K",
     subtitle: "أعلى دقة بث 4K حقيقية",
-    logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663796914623/kcVGfPbexyjmiETF.jpg",
+    logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663796914623/wpFwveItHIqfWwWS.jpg",
     prices: {
       '3': 100,
       '6': 200,
@@ -169,7 +169,7 @@ export const packages: Package[] = [
     id: "universe",
     name: "Universe TV",
     subtitle: "خدمة بث متميزة",
-    logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663796914623/kcVGfPbexyjmiETF.jpg",
+    logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663796914623/TXsoELoTqWKfRIAv.jpg",
     prices: {
       '3': 100,
       '6': 150,
